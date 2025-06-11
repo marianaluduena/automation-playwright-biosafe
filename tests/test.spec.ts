@@ -10,18 +10,13 @@ test('Find and click register btn', async ({ page }) => {
   landingPage = new LandingPage(page);
   signUpPage = new SignUp(page);
 
-  await page.goto('https://qa.biosafeapp.com');
+  // Go to Signup Page
 
-  await landingPage.btnRegister.click();
-  expect(page.url()).toBe('https://qa.biosafeapp.com/signup');
+  await landingPage.goToSignUpPage();
 
-// Signup page test: Fill the form
+  // Fill the signup form
 
-await signUpPage.name.fill("Jasmine");
-await signUpPage.email.fill("jasmine@fake.com");
-await signUpPage.passWord.fill("Princ3ss!");
-await signUpPage.confimPassWord.fill("Princ3ss!");
-await signUpPage.signUpBtn.click();
+  await signUpPage.fillSignUpForm();
 
-await page.waitForTimeout(5000);
+  await page.waitForTimeout(5000);
 });
