@@ -16,7 +16,7 @@ test('Find and click register btn', async ({ page }) => {
 
   // Fill the signup form
 
-  await signUpPage.fillSignUpForm();
+  await signUpPage.fillSignUpForm("Sara","gomez@fake.com","saraEsRata2!");
 
   await page.waitForTimeout(5000);
 });

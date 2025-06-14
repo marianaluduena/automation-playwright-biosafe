@@ -23,14 +23,15 @@ export default class SignUp {
 
     }
 
-    async fillSignUpForm(){
+    async fillSignUpForm(name: string, email: string, passWord: string){
 
     // Signup page test: Fill the form
 
-    await this.name.fill("Sven");
-    await this.email.fill("sv3n@fake.com");
-    await this.passWord.fill("RainDeer2!");
-    await this.confimPassWord.fill("RainDeer2!");
+    await this.name.fill(name);
+    const uniqueMail = email.replace("@", "+" + Date.now() + "@");
+    await this.email.fill(uniqueMail);
+    await this.passWord.fill(passWord);
+    await this.confimPassWord.fill(passWord);
     await this.signUpBtn.click();
 
     // The message should be visible
